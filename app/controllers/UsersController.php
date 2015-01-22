@@ -1,6 +1,6 @@
 <?php
 
-class UserController extends BaseController {
+class UsersController extends BaseController {
 
 	/**
 	 * Display a listing of Users.
@@ -17,7 +17,8 @@ class UserController extends BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		return 'display user create form -- GET /users/create';
+        return View::make('users/create');
+        //return 'display user create form -- GET /users/create';
 	}
 
 	/**
