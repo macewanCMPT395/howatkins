@@ -8,7 +8,7 @@ class HomeController extends BaseController {
 	 * @return Response
 	 */
     public function showHome() {
-		return 'home page';
-	}
+	    return View::make('home/home');
+    }
 
 }

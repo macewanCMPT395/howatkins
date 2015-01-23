@@ -9,12 +9,16 @@
     <div class="title">
         <h1>CMPT395</h1>
     </div>    
+
     <div id="nav">    
         <ul>
             <li><a href="/" id="homenav" >Home</a></li>
+	    @yield('listItem')
             <li><a href="/" id="loginnav" >Login</a></li>
-            @yield('content')
+            
         </ul>
     </div>
+    <br></br>
+    @yield('content')
 </body>
 </html>
