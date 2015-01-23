@@ -3,15 +3,24 @@
 class SessionsController extends BaseController {
     
     public function create() {
-        return View::make('sessions/create');
+        if (Auth::check()) {
+            $id = Auth::user()->id;
+            return Redirect::to("/users/$id");
+        }
+                
+        return View::make('sessions.create');
     }
 
     public function destroy() {
-        // 'log the user out -- GET /logout';
+        Auth::logout();
         return Redirect::route('sessions.create');
     }
 
     public function store() {
-        return 'attempt to log the user in -- POST /login';
+        if (Auth::attempt(Input::only('email', 'password'))) {
+            $id = Auth::user()->id;
+            return Redirect::to("/users/$id");
+        }
+        return Redirect::back()->withInput();
     }
 }
