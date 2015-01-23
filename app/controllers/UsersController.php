@@ -2,6 +2,13 @@
 
 class UsersController extends BaseController {
 
+    protected $user;
+
+    public function __construct(User $user) {
+        $this->user = $user;
+    }
+
+
 	/**
 	 * Display a listing of Users.
 	 *
@@ -26,8 +33,18 @@ class UsersController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store() {
-		return 'store created user -- POST /users ';
+    public function store() {
+        $input = Input::all();
+        
+        if (!$this->user->fill($input)->isValid()) {
+            return Redirect::back()->withInput()
+                        ->withErrors($this->user->errors);
+        }
+
+        $input['password'] = Hash::make($input['password']);
+        $this->user->save();
+        
+        return Redirect::to('/');
 	}
 
 	/**
