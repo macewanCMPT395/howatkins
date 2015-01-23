@@ -15,8 +15,9 @@ class UsersController extends BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		return 'list users -- GET /users';
-	}
+        $users = $this->user->all();
+        return View::make('users/index', ['users' => $users]);
+    }
 
 	/**
 	 * Show the form for creating a new User.
@@ -52,8 +53,9 @@ class UsersController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id) {
-        return "show a specific user -- GET /users/$id";
+    public function show($id) {
+        $user = User::find($id);
+        return View::make('users/show', ['user' => $user]);
 	}
 
 	/**

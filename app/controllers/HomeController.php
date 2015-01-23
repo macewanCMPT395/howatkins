@@ -8,7 +8,13 @@ class HomeController extends BaseController {
 	 * @return Response
 	 */
     public function showHome() {
-	    return View::make('home/home');
+        $auth = Auth::check();
+        $id = -1;
+
+        if ($auth) $id = Auth::user()->id;
+        
+        return View::make('home/home', 
+                array('authorized' => $auth, 'id' => $id));
     }
 
 }

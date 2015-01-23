@@ -7,15 +7,14 @@
 
 <body>
     <div class="title">
-        <h1>CMPT395</h1>
+        <span>CMPT395</span>
     </div>    
 
     <div id="nav">    
         <ul>
             <li><a href="/" id="homenav" >Home</a></li>
-	    @yield('listItem')
-            <li><a href="/" id="loginnav" >Login</a></li>
-            
+            <li><a href="/users">Users</a></li>
+            @yield('listItem')
         </ul>
     </div>
     <br></br>
