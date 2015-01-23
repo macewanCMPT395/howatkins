@@ -3,15 +3,17 @@ body{
     font-size: 100%;
     background-color: White;
     color: Blue;
-    
-    
+    width: 700px;    
+    margin: auto;
     
 }
 
+
+
 .title{
     height:30px;
-    padding-left:500px;
     font-size:150%;   
+    text-align: center;
 }
 
 #nav{
