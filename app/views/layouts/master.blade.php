@@ -1,7 +1,7 @@
  <?php $auth = Auth::check();
         $id = -1;
-
-        if ($auth) $id = Auth::user()->id;?>
+        if ($auth) $id = Auth::user()->id;
+?>
 <!DOCTYPE HTML PUBLIC>
 <html>
 <head>

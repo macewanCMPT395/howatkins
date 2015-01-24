@@ -1,14 +1,5 @@
 @extends('layouts.master')
 
-@section('listItem')
-    @if ($authorized) 
-        <li><a href="/users/{{$id}}">My Profile</a></li>
-        <li><a href="/logout">Logout</a></li>
-    @else
-        <li><a href="/users/create">Create User</a></li>
-        <li><a href="/login">Login</a></li>    
-    @endif
-@stop
 
 @section('content')
     <h1>Welcome</h1>
