@@ -1,3 +1,7 @@
+ <?php $auth = Auth::check();
+        $id = -1;
+
+        if ($auth) $id = Auth::user()->id;?>
 <!DOCTYPE HTML PUBLIC>
 <html>
 <head>
@@ -14,7 +18,15 @@
         <ul>
             <li><a href="/" id="homenav" >Home</a></li>
             <li><a href="/users">Users</a></li>
-            @yield('listItem')
+            <!-- @yield('listItem')-->
+	    @if ($auth) 
+               <li><a href="/users/{{$id}}">My Profile</a></li>
+               <li><a href="/logout">Logout</a></li>
+	    @else
+               <li><a href="/users/create">Create User</a></li>
+               <li><a href="/login">Login</a></li>    
+	    @endif
+
         </ul>
     </div>
     <br></br>
