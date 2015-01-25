@@ -26,7 +26,6 @@ class UsersController extends BaseController {
 	 */
 	public function create() {
         return View::make('users/create');
-        //return 'display user create form -- GET /users/create';
 	}
 
 	/**
@@ -44,7 +43,8 @@ class UsersController extends BaseController {
         }
         $this->user->save();
         
-        return Redirect::to('/');
+        Auth::login($this->user);
+        return Redirect::to("/");
 	}
 
 	/**
@@ -54,9 +54,17 @@ class UsersController extends BaseController {
 	 * @return Response
 	 */
     public function show($id) {
-        $user = User::find($id);
-        return View::make('users/show', ['user' => $user]);
-	}
+        $requestedUser = User::find($id);
+        $editable = false;
+
+        if ($loggedInUser = Auth::user()) { // If a user is logged in..
+            if ($loggedInUser->id == $id)
+                $editable = true;
+        }
+
+        return View::make('users/show', 
+                ['user' => $requestedUser, 'editable' => $editable]);
+    }
 
 	/**
 	 * Show the form for editing the specified User by $id.
@@ -64,8 +72,16 @@ class UsersController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id) {
-		return "display the edit user form -- GET /users/$id/edit";
+    public function edit($id) {
+        // Only the user that owns this page should be able to get here.
+
+        $loggedInUser = Auth::user();
+
+        if (Auth::guest() || $loggedInUser->id != $id) {
+            return Redirect::route('sessions.create');
+        }
+
+        return View::make('users/edit', ['user' => $loggedInUser]);
 	}
 
 	/**
@@ -75,7 +91,23 @@ class UsersController extends BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		return "update the user -- POST /users/$id";
+        // Make sure the logged in user is the one making the change.
+        
+        $loggedInUser = Auth::user();
+        if (Auth::guest() || $loggedInUser->id != $id) {
+            return Redirect::route('sessions.create');
+        }
+
+        $input = Input::all();
+        $user = User::find($id);
+
+        if (!$user->fill($input)->isValid()) {
+            return Redirect::back()->withInput()
+                    ->withErrors($user->errors);
+        }
+        $user->save(); 
+
+        return Redirect::to("users/$id");
 	}
 
 	/**
@@ -85,7 +117,19 @@ class UsersController extends BaseController {
 	 * @return Response
 	 */
 	public function destroy($id) {
-		return 'destory the user -- DELETE /users/{users} ';
+        // Make sure only a logged in user can delete themselves.
+
+        $loggedInUser = Auth::user();
+        if (Auth::guest() || $loggedInUser->id != $id) {
+            return Redirect::route('sessions.create');
+        }
+
+        Auth::logout();
+
+        $user = User::find($id);
+        $user->delete();
+    
+        return Redirect::to('/');
 	}
 
 }
