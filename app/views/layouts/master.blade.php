@@ -16,17 +16,16 @@
 
     <div id="nav">    
         <ul>
-            <li><a href="/" id="homenav" >Home</a></li>
-            <li><a href="/users">Users</a></li>
-            <!-- @yield('listItem')-->
-	    @if ($auth) 
-               <li><a href="/users/{{$id}}">My Profile</a></li>
-               <li><a href="/logout">Logout</a></li>
-	    @else
-               <li><a href="/users/create">Create User</a></li>
-               <li><a href="/login">Login</a></li>    
-	    @endif
-
+            <li class='left'><a href="/" id="homenav" >Home</a></li>
+            <li class='left'><a href="/users">Users</a></li>
+            
+            @if ($auth) 
+                <li class='right'><a href="/logout">Logout</a></li>
+                <li class='right'><a href="/users/{{$id}}">My Profile</a></li>
+	        @else
+                <li class='right'><a href="/login">Login</a></li>    
+                <li class='right'><a href="/users/create">Create User</a></li>
+	        @endif
         </ul>
     </div>
     <br></br>
