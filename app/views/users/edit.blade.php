@@ -1,7 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+
+<h1>Edit User</h1>
+
 {{ Form::open(['url' => "/users/$user->id", 'method' => 'put']) }}
+    <fieldset>
+    <legend>Edit User Info</legend>
+
     <div>
         {{ Form::label('firstname', 'First Name:') }}
         {{ Form::text('firstname', $user->firstName) }}
@@ -21,6 +27,7 @@
                 '<span class=error>:message</span>') }}
     </div>
     <div>{{ Form::submit('Update Info') }}</div>
+    </fieldset>
 {{ Form::close() }}
 
 {{ Form::open(['url' => "/users/$user->id", 'method' => 'delete']) }}

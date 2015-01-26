@@ -2,7 +2,12 @@
 
 
 @section('content')
+
+<h1>Create New User</h1>
+
 {{ Form::open(['route' => 'users.store']) }}
+    <fieldset>
+    <legend>Enter User Info</legend>
     <div>
         {{ Form::label('firstname', 'First Name:') }}
         {{ Form::text('firstname') }}
@@ -32,5 +37,6 @@
 
     </div>
     <div>{{ Form::submit('Create User') }}</div>
+    </fieldset>
 {{ Form::close() }}
 @stop

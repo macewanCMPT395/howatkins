@@ -59,3 +59,32 @@ body{
 	color: #781d2e; /* Raspberry */
 	font-weight: bold;
 }
+
+form div {
+    margin: 5px 0;
+}
+
+form fieldset, input {
+    border: 1px solid #000000;
+    border-radius: 2px;
+}
+
+form input {
+    padding: 2px;
+}
+
+form input:read-only {
+    color: #777777;
+}
+
+form label {
+    width: 110px;
+    text-align: right;
+    float: left;
+    padding-right: 5px;
+}
+
+form input[type=submit] {
+    float: left;
+}
+
