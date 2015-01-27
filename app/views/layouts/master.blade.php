@@ -11,7 +11,7 @@
 
 <body>
     <div class="title">
-        <span>CMPT395</span>
+        <span>The Business Community</span>
     </div>    
 
     <div id="nav">    
@@ -22,10 +22,10 @@
             @if ($auth) 
                 <li class='right'><a href="/logout">Logout</a></li>
                 <li class='right'><a href="/users/{{$id}}">My Profile</a></li>
-	        @else
+	    @else
                 <li class='right'><a href="/login">Login</a></li>    
                 <li class='right'><a href="/users/create">Create User</a></li>
-	        @endif
+	    @endif
         </ul>
     </div>
     <br></br>

@@ -23,8 +23,24 @@
         {{ Form::text('membersince', date('d M Y', 
                 strtotime($user->created_at)), ['readonly']) }}
     </div>
+   
+
+    
 {{ Form::close() }}
 
+   <div>
+	@if(!$user->hasImage)
+		<img src="<?php 	$image='/BlankProfileImage.jpg';
+		 echo htmlspecialchars($image); ?>" alt="test" height="100" width="150" />
+	@else
+		<img src="<?php 	$image="/"."$user->email".".jpg";
+		 echo $image;
+		// echo htmlspecialchars($image); ?>" alt="test" height="100" width="150"
+ />
+	@endif
+
+
+    </div>
 
 @if ($editable)
 {{ Form::open(['url' => "/users/$user->id/edit", 'method' => 'get']) }}

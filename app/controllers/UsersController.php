@@ -4,6 +4,8 @@ class UsersController extends BaseController {
 
     protected $user;
 
+
+
     public function __construct(User $user) {
         $this->user = $user;
     }
@@ -34,8 +36,18 @@ class UsersController extends BaseController {
 	 * @return Response
 	 */
     public function store() {
+       
+       
+
+	
+
+
+
+
+	
         $input = Input::all();
         $input['password'] = Hash::make($input['password']);
+
 
         if (!$this->user->fill($input)->isValid()) {
             return Redirect::back()->withInput()
