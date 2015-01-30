@@ -33,4 +33,7 @@
 {{ Form::open(['url' => "/users/$user->id", 'method' => 'delete']) }}
     <div>{{ Form::submit('Delete User') }}</div>
 {{ Form::close() }}
+
+
+
 @stop

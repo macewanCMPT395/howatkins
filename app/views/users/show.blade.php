@@ -30,10 +30,10 @@
 
    <div>
 	@if(!$user->hasImage)
-		<img src="<?php 	$image='/BlankProfileImage.jpg';
+		<img src="<?php 	$image='/uploads/BlankProfileImage.jpg';
 		 echo htmlspecialchars($image); ?>" alt="test" height="100" width="150" />
 	@else
-		<img src="<?php 	$image="/"."$user->email".".jpg";
+		<img src="<?php 	$image="/uploads/"."$user->email".".jpg";
 		 echo $image;
 		// echo htmlspecialchars($image); ?>" alt="test" height="100" width="150"
  />

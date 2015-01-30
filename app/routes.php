@@ -8,3 +8,4 @@ Route::get('logout', array('as' => 'sessions.destroy',
 Route::post('login', array('as' => 'sessions.store',
         'uses' => 'SessionsController@store'));
 Route::resource('users', 'UsersController');
+
