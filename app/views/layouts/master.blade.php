@@ -33,7 +33,8 @@
     </div>
 
     <div id="footer">
-        <p id="copyright">copyright</p>
+        <p id="copyright">&copy; Lee Howorko & Eric Watkins, 2015</p>
+
     </div>
 </body>
 </html>

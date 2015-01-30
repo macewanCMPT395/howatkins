@@ -6,7 +6,7 @@ body{
     font-family:Arial, Helvetica, sans-serif;
     font-size: 100%;
     margin: 10px auto;
-    color: #0000ff;
+    color: #333333;
     width: 800px;    
 }
 
@@ -27,12 +27,13 @@ h2 {
     margin-bottom: 10px;
 }
 
-div#header {
+div#header .title {
     padding: 0;
 }
 
 .title {
     margin: 0;
+    padding-bottom: 10px;
 }
 
 div#nav{
@@ -64,21 +65,13 @@ div#nav ul li:first-child, div#nav ul li:last-child {
     border-left: 0;
 }
 
-div#nav ul li a, div#nav ul li a:link, div#nav ul li a:visited {
-	color: #ffffff;
+a {
+	color: #eeeeee;
 	text-decoration: none;
 }
 
-div#nav ul li a:hover {
-	color: #9b4048; /* Lighter red */
-}
-
-div#nav ul li a.selected {
-	color: #781d2e; /* Raspberry */
-	font-weight: bold;
-}
-
-div#content {
+a:hover {
+    color: #333333;
 }
 
 div#footer {
@@ -117,9 +110,22 @@ form label {
     padding-right: 5px;
 }
 
+form input {
+    background-color: #dddddd;
+}
+
 form input[type=submit] {
     width: 115px;
     margin-top: 10px;
+}
+
+form input[readonly="readonly"] {
+    background-color: transparent;
+    color: #333333;
+}
+
+form img {
+    float: right;
 }
 
 table#usertable {
@@ -139,7 +145,7 @@ table#usertable th {
     padding-top: 5px;
     padding-bottom: 4px;
     background-color: #333333;
-    color: #ffffff;
+    color: #eeeeee;
 }
 
 table#usertable tr.alt td {
