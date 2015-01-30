@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration {
             $table->string('password');
             $table->timestamps();
             $table->rememberToken();
-	    $table->boolean('image');
+	    $table->boolean('image')->default(false);
         });
 	}
 
