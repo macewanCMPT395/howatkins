@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>Create New User</h1>
+<h2 class="title">Create New User</h2>
 
 {{ Form::open(['route' => 'users.store']) }}
     <fieldset>

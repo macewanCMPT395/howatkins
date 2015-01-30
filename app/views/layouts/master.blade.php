@@ -10,25 +10,30 @@
 </head>
 
 <body>
-    <div class="title">
-        <span>The Business Community</span>
-    </div>    
-
-    <div id="nav">    
+    <div id="header">
+        <div id="sitename"><h1 class="title">The Business Community</h1></div>
+        <div id="nav">    
         <ul>
-            <li class='left'><a href="/" id="homenav" >Home</a></li>
-            <li class='left'><a href="/users">Users</a></li>
+            <li><a href="/" id="homenav" >Home</a></li>
+            <li><a href="/users">Users</a></li>
             
             @if ($auth) 
-                <li class='right'><a href="/logout">Logout</a></li>
-                <li class='right'><a href="/users/{{$id}}">My Profile</a></li>
-	    @else
-                <li class='right'><a href="/login">Login</a></li>    
-                <li class='right'><a href="/users/create">Create User</a></li>
-	    @endif
+            <li class='right'><a href="/logout">Logout</a></li>
+            <li class='right'><a href="/users/{{$id}}">My Profile</a></li>
+	        @else
+            <li class='right'><a href="/login">Login</a></li>    
+            <li class='right'><a href="/users/create">Create User</a></li>
+	        @endif
         </ul>
+        </div> <!-- end nav -->
+    </div> <!-- end header -->
+
+    <div id="content">
+        @yield('content')
     </div>
-    <br></br>
-    @yield('content')
+
+    <div id="footer">
+        <p id="copyright">copyright</p>
+    </div>
 </body>
 </html>

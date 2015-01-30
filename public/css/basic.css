@@ -1,63 +1,96 @@
+html {
+    background-color: #aaaaaa;
+}
+
 body{
     font-family:Arial, Helvetica, sans-serif;
     font-size: 100%;
-    background-color: #ffffff;
+    margin: 10px auto;
     color: #0000ff;
     width: 800px;    
-    margin: auto;    
 }
 
-.title{
-    font-size: 3em;
-    text-align: center;
-    margin-bottom: -20px;
+h1 {
+    font-size: 2.3em;
 }
 
-#nav{
-    background-color: #000000;
+h2 {
+    font-size: 1.8em;
+}
+
+#sitename, #content, #footer {
+    padding: 10px;
+}
+
+#header, #content, #footer {
+    background-color: #888888;
+    margin-bottom: 10px;
+}
+
+div#header {
+    padding: 0;
+}
+
+.title {
+    margin: 0;
+}
+
+div#nav{
     height: 40;
-}
-
-#nav ul{
-    list-style: none;
     font-size: 120%;
 }
 
-#nav ul li {
+div#nav ul{
+    list-style: none;
+    margin: 0;
+}
+
+div#nav ul li {
     padding: 4 12;
     margin: 5 0;
-    border-left: 1px solid #ffffff;
-    background-color: #000000;  
-}
-
-#nav ul li.left {
     float: left;
+    border-left: 1px solid #ffffff;
 }
 
-#nav ul li.right {
+div#nav ul li.right {
     float: right;
 }
 
-#nav ul li:first-child {
+div#nav ul li:first-child {
     margin-left: -40px;
 }
 
-#nav ul li:first-child, #nav ul li:last-child {
+div#nav ul li:first-child, div#nav ul li:last-child {
     border-left: 0;
 }
 
-#nav ul li a, #nav ul li a:link, #nav ul li a:visited {
+div#nav ul li a, div#nav ul li a:link, div#nav ul li a:visited {
 	color: #ffffff;
 	text-decoration: none;
 }
 
-#nav ul li a:hover {
+div#nav ul li a:hover {
 	color: #9b4048; /* Lighter red */
 }
 
-#nav ul li a.selected {
+div#nav ul li a.selected {
 	color: #781d2e; /* Raspberry */
 	font-weight: bold;
+}
+
+div#content {
+}
+
+div#footer {
+    margin-bottom: 0;
+}
+
+div#footer #copyright {
+    margin: 0;
+}
+
+form {
+    margin-bottom: 0;
 }
 
 form div {
@@ -87,5 +120,30 @@ form label {
 form input[type=submit] {
     width: 115px;
     margin-top: 10px;
+}
+
+table#usertable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table#usertable td, table#usertable th {
+    font-size: 1em;
+    border: 1px solid #666666;
+    padding: 3px 7px 2px 7px;
+}
+
+table#usertable th {
+    font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+table#usertable tr.alt td {
+    color: #000000;
+    background-color: #eaf2d3;
 }
 

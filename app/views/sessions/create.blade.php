@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>Login</h1>
+<h2 class="title">Login</h2>
 
 {{ Form::open(['route' => 'sessions.store']) }}
     <fieldset>
