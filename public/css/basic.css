@@ -85,6 +85,7 @@ form label {
 }
 
 form input[type=submit] {
-    float: left;
+    width: 115px;
+    margin-top: 10px;
 }
 
